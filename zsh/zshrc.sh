@@ -1,54 +1,3 @@
-# aliases
-alias gp="git push"
-alias gcm="git commit -m"
-alias gaa="git add --all"
-alias ga="git add"
-alias gm="git merge"
-alias gco="git checkout"
-alias gb="git branch"
-alias gst="git status"
-alias gl="git pull"
-alias grs="git restore"
-alias grss="git restore --staged"
-alias gfa="git fetch --all --prune"
-alias glp="git log --graph --oneline --decorate"
-alias gr="git reset"
-alias grh="git reset --hard"
-alias grso="git reset --soft"
-alias gs="git stash"
-alias grb="git rebase"
-alias glpa="git log --graph --oneline --decorate --all"
-alias gpus="git push --set-upstream origin"
-alias lg="lazygit"
-alias py="python"
-alias nrd="npm run dev"
-alias nr='npm run'
-alias kc="kubectl"
-alias mk="minikube"
-alias dk="docker"
-alias dkcu="docker compose up"
-alias dkc="docker compose"
-alias wbst="webstorm"
-alias q="exit"
-alias hollywood="dk run --rm -it bcbcarl/hollywood"
-alias genstr="openssl rand -base64"
-alias local-psql="psql -h localhost -p 5432 -U postgres -d"
-alias l="ls -alh"
-alias viewpath="echo $PATH | tr ':' '\n' | xargs -I{} find {} -type f -perm +111 2>/dev/null"
-alias cl="clear"
-alias v="nvim"
-alias v.="v ."
-alias m="mynav"
-alias tm="tmux"
-
-# shell prompt
-PROMPT=$'\n %F{#7db6ff}%~%f %F{#cad6f5}$(git_prompt_info)%f \n %F{#b3f971}→%f '
-
-# mypass
-export PATH="$PATH:$HOME/.mypass"
-# mynav
-export PATH="$PATH:$HOME/.mynav"
-
 ###############################
 ######### OHMYZSH #############
 ###############################
@@ -169,3 +118,53 @@ set -o vi
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+# aliases
+alias gp="git push"
+alias gcm="git commit -m"
+alias gaa="git add --all"
+alias ga="git add"
+alias gm="git merge"
+alias gco="git checkout"
+alias gb="git branch"
+alias gst="git status"
+alias gl="git pull"
+alias grs="git restore"
+alias grss="git restore --staged"
+alias gfa="git fetch --all --prune"
+alias glp="git log --graph --oneline --decorate"
+alias gr="git reset"
+alias grh="git reset --hard"
+alias grso="git reset --soft"
+alias gs="git stash"
+alias grb="git rebase"
+alias glpa="git log --graph --oneline --decorate --all"
+alias gpus="git push --set-upstream origin"
+alias lg="lazygit"
+alias py="python"
+alias nrd="npm run dev"
+alias nr='npm run'
+alias kc="kubectl"
+alias mk="minikube"
+alias dk="docker"
+alias dkcu="docker compose up"
+alias dkc="docker compose"
+alias wbst="webstorm"
+alias q="exit"
+alias hollywood="dk run --rm -it bcbcarl/hollywood"
+alias genstr="openssl rand -base64"
+alias local-psql="psql -h localhost -p 5432 -U postgres -d"
+alias l="ls -alh"
+alias viewpath="echo $PATH | tr ':' '\n' | xargs -I{} find {} -type f -perm +111 2>/dev/null"
+alias cl="clear"
+alias v="nvim"
+alias v.="v ."
+alias m="mynav"
+alias tm="tmux"
+
+# shell prompt
+PROMPT=$'\n %F{#7db6ff}%~%f %F{#cad6f5}$(git_prompt_info)%f \n %F{#b3f971}→%f '
+
+# mypass
+export PATH="$PATH:$HOME/.mypass"
+# mynav
+export PATH="$PATH:$HOME/.mynav"
