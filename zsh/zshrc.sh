@@ -162,7 +162,7 @@ alias m="mynav"
 alias tm="tmux"
 
 # shell prompt
-PROMPT=$'\n %F{#7db6ff}%~%f %F{#cad6f5}$(git_prompt_info)%f \n %F{#b3f971}→%f '
+PROMPT=$'\n \e[1m%F{#7db6ff}%~%f %F{#cad6f5}$(git_prompt_info)%f \n %F{#b3f971}→%f\e[0m '
 
 # mypass
 export PATH="$PATH:$HOME/.mypass"
