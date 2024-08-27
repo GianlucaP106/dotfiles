@@ -18,7 +18,7 @@ RUN \
     make unzip zsh rgrep jq fzf inetutils-ping \
     # languages
     python3.12-venv python3 npm \
-    golang-go clang
+    golang-go clang libx11-dev
 
 # installs
 RUN \
