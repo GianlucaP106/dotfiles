@@ -163,7 +163,7 @@ alias v.="v ."
 alias m="mynav"
 alias tm="tmux"
 
-PROMPT=$'%{%F{#FFD28F}%}%T %{%f%F{#B4BDFF}%}:: %{%f%F{#7db6ff}%}%3~%(0?. . %{%}%? )%{%f%F{#c7c7c7}%}$(git_prompt_info) %{%f%F{#b3f971}%}\n»%{%f%} '
+PROMPT=$'%{%F{#FFD28F}%}%T %{%f%F{#7db6ff}%}%3~%(0?. . %{%}%? )%{%f%F{#c7c7c7}%}$(git_prompt_info)%{%f%} \n::: %{%F{#b3f971}%}»%{%f%} '
 
 # shell prompt
 # PROMPT=$'\n \e[1m%F{#7db6ff}%~%f %F{#cad6f5}$(git_prompt_info)%f \n %F{#b3f971}→%f\e[0m '
