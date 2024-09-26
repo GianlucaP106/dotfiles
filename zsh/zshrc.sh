@@ -11,6 +11,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
+# ZSH_THEME="cypher"
 # ZSH_THEME="frontcube"
 # ZSH_THEME="robbyrussell"
 
@@ -161,10 +163,12 @@ alias v.="v ."
 alias m="mynav"
 alias tm="tmux"
 
+PROMPT=$'%{%F{#FFD28F}%}%T %{%f%F{#B4BDFF}%}:: %{%f%F{#7db6ff}%}%3~%(0?. . %{%}%? )%{%f%F{#c7c7c7}%}$(git_prompt_info) %{%f%F{#b3f971}%}\n»%{%f%} '
+
 # shell prompt
 # PROMPT=$'\n \e[1m%F{#7db6ff}%~%f %F{#cad6f5}$(git_prompt_info)%f \n %F{#b3f971}→%f\e[0m '
 # had to wrap color codes in %{}
-PROMPT=$'\n%{\e[1m%}%{%F{#7db6ff}%}%~%{%f%} %{%F{#cad6f5}%}$(git_prompt_info)%{%f%}\n%{%F{#b3f971}%}→%{%f%}%{\e[0m%} '
+# PROMPT=$'%{\e[1m%}%{%F{#7db6ff}%}%~%{%f%} %{%F{#cad6f5}%}$(git_prompt_info)%{%f%}\n%{%F{#b3f971}%}→%{%f%}%{\e[0m%} '
 
 # mypass
 export PATH="$PATH:$HOME/.mypass"
