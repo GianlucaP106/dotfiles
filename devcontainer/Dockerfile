@@ -27,8 +27,11 @@ RUN \
     # ohmyzsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
-    # tpm
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && \
+
+    # catppuccin
+    mkdir -p ~/.config/tmux/plugins/catppuccin && \
+    git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux && \
+
     # neovim config
     git clone https://github.com/GianlucaP106/lazyvim-config ~/.config/nvim && \
     # mynav
