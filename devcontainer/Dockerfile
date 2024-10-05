@@ -32,7 +32,7 @@ RUN \
     # neovim config
     git clone https://github.com/GianlucaP106/lazyvim-config ~/.config/nvim && \
     # mynav
-    curl -fsSL https://raw.githubusercontent.com/GianlucaP106/mynav/main/install.sh | bash && \
+    curl -fsSL https://raw.githubusercontent.com/GianlucaP106/mynav/main/install.bash | bash && \
     # lazygit
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*') && \
     curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" && \
