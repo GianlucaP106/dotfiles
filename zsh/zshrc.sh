@@ -170,3 +170,7 @@ PROMPT=$'%{\e[1m%}%{%F{#FFD28F}%}%T %{%f%F{#7db6ff}%}%3~%(0?. . %{%f%F{red}%}%? 
 export PATH="$PATH:$HOME/.mypass"
 # mynav
 export PATH="$PATH:$HOME/.mynav"
+# tmuxman
+export PATH="$PATH:$HOME/.tmuxman"
+# termcraft
+export PATH="$PATH:$HOME/.termcraft/"
