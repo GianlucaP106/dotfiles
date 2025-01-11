@@ -163,6 +163,10 @@ alias v.="v ."
 alias m="mynav"
 alias tm="tmux"
 
+# gpt4all cli
+alias lllm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/phi-4-fp16.gguf"
+alias llm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/Nous-Hermes-2-Mistral-7B-DPO.Q4_0.gguf"
+
 # shell prompt
 PROMPT=$'%{\e[1m%}%{%F{#FFD28F}%}%T %{%f%F{#7db6ff}%}%3~%(0?. . %{%f%F{red}%}%? )%{%f%F{#c7c7c7}%}$(git_prompt_info)%{%f%}\n::: %{%F{#b3f971}%}%{%G»%}%{%f\e[0m%} '
 
