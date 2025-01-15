@@ -120,7 +120,8 @@ set -o vi
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
-# aliases
+
+# git aliases
 alias gp="git push"
 alias gcm="git commit -m"
 alias gaa="git add --all"
@@ -141,6 +142,7 @@ alias gs="git stash"
 alias grb="git rebase"
 alias glpa="git log --graph --oneline --decorate --all"
 alias gpus="git push --set-upstream origin"
+
 alias lg="lazygit"
 alias py="python"
 alias nrd="npm run dev"
@@ -162,6 +164,7 @@ alias v="nvim"
 alias v.="v ."
 alias m="mynav"
 alias tm="tmux"
+alias ports="netstat -anp tcp | grep LISTEN"
 
 # gpt4all cli
 alias lllm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/phi-4-fp16.gguf"
