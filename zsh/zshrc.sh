@@ -167,6 +167,9 @@ alias tm="tmux"
 alias ports="netstat -anp tcp | grep LISTEN"
 alias start-db="docker run -d --name db -e PGUSER=postgres -e POSTGRES_PASSWORD=admin -p 5432:5432 postgres:alpine"
 
+# fzf
+source <(fzf --zsh)
+
 # gpt4all cli
 alias lllm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/phi-4-fp16.gguf"
 alias llm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/Nous-Hermes-2-Mistral-7B-DPO.Q4_0.gguf"
