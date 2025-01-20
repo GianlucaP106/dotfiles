@@ -164,7 +164,7 @@ alias v="nvim"
 alias v.="v ."
 alias m="mynav"
 alias tm="tmux"
-alias ports="netstat -anp tcp | grep LISTEN"
+alias ports="lsof -nP -iTCP -sTCP:LISTEN"
 alias start-db="docker run -d --name db -e PGUSER=postgres -e POSTGRES_PASSWORD=admin -p 5432:5432 postgres:alpine"
 
 # fzf
