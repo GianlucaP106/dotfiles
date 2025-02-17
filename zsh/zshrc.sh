@@ -165,6 +165,7 @@ alias v.="v ."
 alias m="mynav"
 alias tm="tmux"
 alias ports="lsof -nP -iTCP -sTCP:LISTEN"
+alias uuid="echo $(uuidgen | tr '[:upper:]' '[:lower:]')"
 
 alias start-db="docker compose -p start-db -f <(echo '
 services:
