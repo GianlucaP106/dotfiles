@@ -165,7 +165,23 @@ alias v.="v ."
 alias m="mynav"
 alias tm="tmux"
 alias ports="lsof -nP -iTCP -sTCP:LISTEN"
-alias start-db="docker run -d --name db -e PGUSER=postgres -e POSTGRES_PASSWORD=admin -p 5432:5432 postgres:alpine"
+
+alias start-db="docker compose -p start-db -f <(echo '
+services:
+  db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: db
+    ports:
+      - "5432:5432"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8081:8080"
+') up"
+alias stop-db="docker compose -p start-db down"
 
 # fzf
 source <(fzf --zsh)
