@@ -166,6 +166,7 @@ alias m="mynav"
 alias tm="tmux"
 alias ports="lsof -nP -iTCP -sTCP:LISTEN"
 alias uuid="echo $(uuidgen | tr '[:upper:]' '[:lower:]')"
+alias dumptcp="ncat --keep-open --recv-only -l"
 
 alias start-db="docker compose -p start-db -f <(echo '
 services:
