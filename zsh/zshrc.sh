@@ -204,3 +204,5 @@ export PATH="$PATH:$HOME/.mynav"
 export PATH="$PATH:$HOME/.tmuxman"
 # termcraft
 export PATH="$PATH:$HOME/.termcraft/"
+#mysql
+export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
