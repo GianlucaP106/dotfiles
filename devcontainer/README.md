@@ -10,5 +10,6 @@
 mkdir devcontainer && cd devcontainer && \
     curl -fsSL https://raw.githubusercontent.com/GianlucaP106/dotfiles/main/devcontainer/Dockerfile > Dockerfile && \
     docker build -t devcontainer . && \
-    docker run -it devcontainer
+    docker run -d --name devcontainer devcontainer && \
+    docker exec -it devcontainer /bin/zsh
 ```

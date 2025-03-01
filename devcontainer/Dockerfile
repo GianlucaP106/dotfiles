@@ -14,8 +14,8 @@ RUN \
     apt-get update && \
     apt-get install -y \
     # base packages & tools
-    git build-essential vim neovim tmux curl \
-    make unzip zsh rgrep jq fzf inetutils-ping \
+    git build-essential tree vim tmux curl clangd \
+    make unzip zsh rgrep jq inetutils-ping uuid-runtime \
     # languages
     python3.12-venv python3 npm \
     golang-go clang libx11-dev
@@ -24,14 +24,22 @@ RUN \
 RUN \
     # treesitter
     npm install -g tree-sitter-cli && \
+    # fzf
+    curl -L -o /tmp/fzf.tar.gz https://github.com/junegunn/fzf/releases/download/v0.60.2/fzf-0.60.2-linux_arm64.tar.gz && \
+    tar -xf /tmp/fzf.tar.gz -C /tmp && \
+    mv /tmp/fzf /usr/local/bin && \
     # ohmyzsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
-
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
     # catppuccin
     mkdir -p ~/.config/tmux/plugins/catppuccin && \
     git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux && \
-
+    # neovim
+    curl -L -o /tmp/nvim.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.tar.gz && \
+    tar -xf /tmp/nvim.tar.gz -C /tmp && \
+    mv /tmp/nvim-linux-arm64/share/nvim/runtime /usr/local/share/nvim && \
+    mv /tmp/nvim-linux-arm64/bin/nvim /usr/local/bin && \
     # neovim config
     git clone https://github.com/GianlucaP106/lazyvim-config ~/.config/nvim && \
     # mynav
@@ -48,7 +56,7 @@ RUN \
 # add more installs as u go...
 
 # path mofications
-ENV PATH="$PATH:$HOME/.mynav"
+ENV PATH="$PATH:/root/.mynav"
 
 # setup dotfiles
 RUN \
@@ -56,4 +64,4 @@ RUN \
     cp ./dotfiles/zsh/zshrc.sh ~/.zshrc && \
     cp ./dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-ENTRYPOINT [ "/bin/zsh" ]
+ENTRYPOINT [ "sleep", "infinity" ]
