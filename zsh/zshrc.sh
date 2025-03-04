@@ -204,7 +204,7 @@ git_prompt_info2() {
 }
 
 # shell prompt
-PROMPT=$'%{\e[1m%}%{%F{#7db6ff}%}%T %{%f%F{#c7c7c7}%}%3~ %{%f%F{#e6e6ff}%}$(git_prompt_info2)%{%f%}\n::: %{%F{#b3f971}%}%{%G»%}%{%f\e[0m%} '
+PROMPT=$'%{\e[1m%}%{%F{#7db6ff}%}%T %{%f%F{#c7c7c7}%}%3~ %{%f%F{#e6e6ff}%} $(git_prompt_info2)%{%f%}\n::: %{%F{#b3f971}%}%{%G»%}%{%f\e[0m%} '
 
 # mypass
 export PATH="$PATH:$HOME/.mypass"
