@@ -193,8 +193,18 @@ source <(fzf --zsh)
 alias lllm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/phi-4-fp16.gguf"
 alias llm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/Nous-Hermes-2-Mistral-7B-DPO.Q4_0.gguf"
 
+git_prompt_info2() {
+    local s="" branch=""
+
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        [[ -n "$(git status -s 2>/dev/null)" ]] && s="*"
+        branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+        echo "${branch}${s}"
+    fi
+}
+
 # shell prompt
-PROMPT=$'%{\e[1m%}%{%F{#FFD28F}%}%T %{%f%F{#7db6ff}%}%3~%(0?. . %{%f%F{red}%}%? )%{%f%F{#c7c7c7}%}$(git_prompt_info)%{%f%}\n::: %{%F{#b3f971}%}%{%G»%}%{%f\e[0m%} '
+PROMPT=$'%{\e[1m%}%{%F{#7db6ff}%}%T %{%f%F{#c7c7c7}%}%3~ %{%f%F{#e6e6ff}%}$(git_prompt_info2)%{%f%}\n::: %{%F{#b3f971}%}%{%G»%}%{%f\e[0m%} '
 
 # mypass
 export PATH="$PATH:$HOME/.mypass"
