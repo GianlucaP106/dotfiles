@@ -186,6 +186,11 @@ services:
 ') up"
 alias stop-db="docker compose -p start-db down"
 
+# tmux swap-window
+tms() {
+    tmux swap-window -s $1 -t $2
+}
+
 # fzf
 source <(fzf --zsh)
 
