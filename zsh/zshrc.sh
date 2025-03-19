@@ -112,8 +112,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 ###############################
-######### OHMYZSH END #########
+####### EDITOR & PROMPT #######
 ###############################
 
 # set vi mode
@@ -121,6 +122,48 @@ set -o vi
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+# fzf
+source <(fzf --zsh)
+
+git_prompt_info2() {
+    local s="" branch=""
+
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        [[ -n "$(git status -s 2>/dev/null)" ]] && s="*"
+        branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+        echo " ${branch}${s}"
+    fi
+}
+
+# Change cursor based on vi mode
+function zle-keymap-select {
+    case $KEYMAP in
+    vicmd) echo -ne '\e[2 q' ;;        # Block cursor (Normal mode)
+    viins | main) echo -ne '\e[6 q' ;; # Line cursor (Insert mode)
+    esac
+}
+zle -N zle-keymap-select
+
+# Set initial cursor on shell start (Insert mode by default)
+function zle-line-init {
+    echo -ne '\e[6 q' # Line cursor
+}
+zle -N zle-line-init
+
+# Reset cursor on exit
+function reset-cursor {
+    echo -ne '\e[2 q' # Block cursor on exit
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook zshexit reset-cursor
+
+# shell prompt
+PROMPT=$'%{\e[1m%}%{%F{#7db6ff}%}%T %{%f%F{#c7c7c7}%}%3~ %{%f%F{#e6e6ff}%}$(git_prompt_info2)%{%f%}\n::: %{%F{#b3f971}%}%{%G»%}%{%f\e[0m%} '
+
+###############################
+########### ALIASES ###########
+###############################
 
 # git aliases
 alias gp="git push"
@@ -191,25 +234,13 @@ tms() {
     tmux swap-window -s $1 -t $2
 }
 
-# fzf
-source <(fzf --zsh)
-
 # gpt4all cli
 alias lllm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/phi-4-fp16.gguf"
 alias llm="python ~/mynav/personal/gpt4all-cli/gpt4all-cli.py --model ~/mynav/personal/gpt4all-cli/models/Nous-Hermes-2-Mistral-7B-DPO.Q4_0.gguf"
 
-git_prompt_info2() {
-    local s="" branch=""
-
-    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-        [[ -n "$(git status -s 2>/dev/null)" ]] && s="*"
-        branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-        echo " ${branch}${s}"
-    fi
-}
-
-# shell prompt
-PROMPT=$'%{\e[1m%}%{%F{#7db6ff}%}%T %{%f%F{#c7c7c7}%}%3~ %{%f%F{#e6e6ff}%}$(git_prompt_info2)%{%f%}\n::: %{%F{#b3f971}%}%{%G»%}%{%f\e[0m%} '
+###############################
+############ PATH #############
+###############################
 
 # mypass
 export PATH="$PATH:$HOME/.mypass"
@@ -221,3 +252,4 @@ export PATH="$PATH:$HOME/.tmuxman"
 export PATH="$PATH:$HOME/.termcraft/"
 #mysql
 export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
+# export XDG_CONFIG_HOME="$HOME/.xdg_config"
