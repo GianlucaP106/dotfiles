@@ -48,3 +48,4 @@ macos-titlebar-proxy-icon = "hidden"
 macos-titlebar-style = "hidden"
 font-size = 17
 cursor-color = "#528dad"
+mouse-hide-while-typing = "true"
